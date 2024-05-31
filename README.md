@@ -11,17 +11,17 @@ Ce projet vise à réaliser une analyse de sentiments sur des avis d'hôpitaux e
 ## Structure du Projet
 
 1. **Scraping des Données**
-    - Les avis sur les hôpitaux sont scrappés à partir de plusieurs sites web en utilisant Selenium et BeautifulSoup.
+    - Les avis sur les hôpitaux sont scrappés à partir du site Hospitalidee web en utilisant Selenium et BeautifulSoup.
     - Les avis sont classés en deux catégories : positifs et négatifs.
     - Les données scrappées sont stockées dans deux DataFrames : `combined_df` pour les données d'entraînement et `df_test` pour les données de test.
 
 2. **Préparation des Données**
-    - Les commentaires sont nettoyés pour retirer les caractères spéciaux, les accents, les chiffres, et la ponctuation.
-    - Les stopwords sont retirés des commentaires pour faciliter l'analyse.
+    - Les commentaires sont nettoyés avec la fonction 'clean_text' pour retirer les caractères spéciaux, les accents, les chiffres, et la ponctuation.
+    - D'un autre côté pour les nuages de mots, un autres dataframe est crée duquel les stopwords sont retirés pour faciliter l'analyse.
 
 3. **Entraînement du Modèle mBERT**
-    - Le modèle mBERT est utilisé pour la classification des sentiments des avis.
-    - Les avis sont tokenisés et préparés pour l'entraînement du modèle.
+    - Le modèle mBERT est utilisé pour la classification des avis : en positifs(1) et négatifs(2).
+    - Les avis sont tokenisés et préparés pour l'entraînement du modèle .
     - Le modèle est entraîné sur les données d'entraînement et testé sur les données de test.
 
 4. **Analyse de Sentiment avec TextBlob**
