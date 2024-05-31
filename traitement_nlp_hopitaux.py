@@ -23,7 +23,9 @@ from tensorflow.keras.models import Model
 from tensorflow.keras.optimizers import Adam
 from transformers import BertTokenizer
 import re
-
+from wordcloud import WordCloud
+from collections import Counter
+import matplotlib.pyplot as plt
 
 def scrape_page(url):
     driver = webdriver.Chrome()
@@ -184,7 +186,7 @@ def remove_stopwords_except(text):
     filtered_words = [word for word in words if word.lower() not in stop_words]
     return filtered_words
 
-data['tokens_commentaires'] = data['tokens_commentaires'].apply(remove_stopwords_except)
+data['tokens_commentaires'] = data['clean'].apply(remove_stopwords_except)
 
 ###############################################################################
 ######################### Initialisation du tokenizer BERT #####################
